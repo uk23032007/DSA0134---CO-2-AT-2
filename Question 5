@@ -1,0 +1,40 @@
+#include<iostream>
+using namespace std;
+
+class Product{
+    string name;
+    int price,qty;
+public:
+    static int count;
+
+    void getData(string n,int p,int q){
+        name=n; price=p; qty=q;
+        count++;
+    }
+
+    int total(){
+        return price*qty;
+    }
+
+    void display(){
+        cout<<name<<" "<<price<<" "<<qty<<" "<<total()<<endl;
+    }
+};
+
+int Product::count=0;
+
+int main(){
+    int bill=0;
+    Product p[2];
+
+    p[0].getData("Mobile",10000,2);
+    p[1].getData("Headphone",1000,3);
+
+    for(int i=0;i<2;i++){
+        p[i].display();
+        bill+=p[i].total();
+    }
+
+    cout<<"Total Products: "<<Product::count<<endl;
+    cout<<"Total Bill: "<<bill;
+}
