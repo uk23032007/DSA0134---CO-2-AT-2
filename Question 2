@@ -1,0 +1,37 @@
+#include<iostream>
+using namespace std;
+
+class Member{
+    int id,fee;
+    string name,plan;
+public:
+    static int count;
+
+    void getData(int i,string n,string p){
+        id=i; name=n; plan=p;
+
+        if(plan=="Basic") fee=1000;
+        else if(plan=="Premium") fee=2000;
+        else fee=3000;
+
+        count++;
+    }
+
+    void display(){
+        cout<<id<<" "<<name<<" "<<plan<<" "<<fee<<endl;
+    }
+};
+
+int Member::count=0;
+
+int main(){
+    Member m[2];
+
+    m[0].getData(101,"Rahul","Premium");
+    m[1].getData(102,"Arun","VIP");
+
+    for(int i=0;i<2;i++)
+        m[i].display();
+
+    cout<<"Total Members: "<<Member::count;
+}
