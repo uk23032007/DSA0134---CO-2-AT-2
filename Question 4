@@ -1,0 +1,34 @@
+
+
+#include<iostream>
+using namespace std;
+
+class Event{
+    string event,participant;
+    int regid;
+public:
+    static int count;
+
+    void getData(string e,string p,int r){
+        event=e; participant=p; regid=r;
+        count++;
+    }
+
+    void display(){
+        cout<<event<<" "<<participant<<" "<<regid<<endl;
+    }
+};
+
+int Event::count=0;
+
+int main(){
+    Event e[2];
+
+    e[0].getData("TechFest","Rahul",1001);
+    e[1].getData("Coding","Arun",1002);
+
+    for(int i=0;i<2;i++)
+        e[i].display();
+
+    cout<<"Total Participants: "<<Event::count;
+}
