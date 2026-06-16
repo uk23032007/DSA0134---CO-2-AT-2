@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+
+class Warehouse{
+    int id,qty;
+    string name,loc;
+public:
+    static int count;
+
+    void getData(int i,string n,int q,string l){
+        id=i; name=n; qty=q; loc=l;
+        count++;
+    }
+
+    void display(){
+        cout<<id<<" "<<name<<" "<<qty<<" "<<loc<<endl;
+    }
+};
+
+int Warehouse::count=0;
+
+int main(){
+    Warehouse w[2];
+
+    w[0].getData(1,"Laptop",10,"A1");
+    w[1].getData(2,"Mouse",20,"B1");
+
+    for(int i=0;i<2;i++)
+        w[i].display();
+
+    cout<<"Total Items: "<<Warehouse::count;
+}
